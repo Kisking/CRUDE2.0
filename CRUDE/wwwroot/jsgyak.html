@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="stilus.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="pascal">
+        <script>
+            var pascal = document.getElementById("pascal");
+            var méret = 10;
+            var faktoriálisR = (n) => {
+                if (n === 0 || n === 1) {
+                    return 1;
+                } else {
+                    return n * faktoriálisR(n - 1)
+                }
+            }
+            for (var s = 0; s < méret; s++) {
+                var újSor = document.createElement("div");
+                újSor.classList.add("sor");
+                //újSor.innerHTML = "*";
+                pascal.appendChild(újSor);
+
+                for (var o = 0; o <= s; o++) {
+                    var újElem = document.createElement("div");
+                    újElem.innerHTML = faktoriálisR(s)/(faktoriálisR(o)*faktoriálisR(s-o));
+                    újElem.classList.add("elem");
+                    újSor.appendChild(újElem);
+                }
+            }</script>
+    </div>
+
+</body>
+</html>
